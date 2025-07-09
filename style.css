@@ -1,0 +1,488 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Changed font to Poppins */
+    line-height: 1.8; /* Increased line height for readability */
+    color: #333; /* Darker text for better contrast */
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Vibrant gradient background */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #fff; /* White for headings on vibrant background */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Text shadow for depth */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+/* Sticky Navigation Styling */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    color: white;
+    padding: 15px 0; /* Increased padding */
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Stronger shadow */
+    backdrop-filter: blur(10px); /* Glassmorphism blur */
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.sticky-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    color: #fff; /* White color */
+    text-decoration: none;
+    font-size: 2.2rem; /* Enhanced font size */
+    font-weight: 900; /* Even bolder font weight */
+    letter-spacing: 2px; /* Increased letter spacing */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Added text shadow for depth */
+}
+
+.sticky-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.sticky-nav ul li {
+    margin-left: 20px;
+}
+
+.sticky-nav ul li a {
+    color: #e0e0e0; /* Lighter white for links */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.2s ease; /* Added transform transition */
+}
+
+.sticky-nav ul li a:hover {
+    color: #00FFFF; /* Cyan on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.sticky-nav ul li a:hover {
+    color: #0077CC; /* Primary Blue */
+}
+
+/* Hero Section Styling */
+.hero-section {
+    height: 100vh; /* Full-screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Vibrant gradient background */
+    padding: 20px;
+    color: white; /* White text for hero section */
+}
+
+.hero-content h1 {
+    font-size: 4rem; /* Larger font size */
+    margin-bottom: 1.5rem;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4); /* Stronger text shadow */
+}
+
+.hero-content p {
+    font-size: 1.5rem; /* Larger font size */
+    margin-bottom: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300; /* Lighter font weight */
+}
+
+.hero-ctas .cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 0 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button.primary {
+    background-color: #00FFFF; /* Cyan */
+    color: #111827; /* Dark text */
+    font-weight: 700; /* Bolder font */
+    box-shadow: 0 4px 10px rgba(0,255,255,0.4); /* Cyan shadow */
+}
+
+.cta-button.primary:hover {
+    background-color: #00CCCC; /* Darker cyan on hover */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+.cta-button.secondary {
+    background-color: #FFD700; /* Gold */
+    color: #111827; /* Dark text */
+    font-weight: 700; /* Bolder font */
+    box-shadow: 0 4px 10px rgba(255,215,0,0.4); /* Gold shadow */
+}
+
+.cta-button.secondary:hover {
+    background-color: #CCAA00; /* Darker gold on hover */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+/* About Us Section Styling */
+.about-section h2,
+.products-section h2,
+.why-choose-us-section h2,
+.testimonials-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem; /* Larger section titles */
+    color: #fff; /* White color for section titles */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Text shadow */
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Products Section Styling */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.product-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.product-item .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.product-item h3 {
+    font-size: 1.8rem; /* Larger font size */
+    margin-bottom: 10px;
+    color: #333; /* Changed to dark grey for higher contrast */
+    text-shadow: 4px 4px 8px rgba(0,0,0,1); /* Max contrast */
+}
+
+.product-item p {
+    font-size: 1.1rem; /* Slightly larger font size */
+    color: #666; /* Changed to a lighter grey for higher contrast */
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.9); /* Max contrast */
+}
+
+.product-note {
+    text-align: center;
+    margin-top: 25px; /* Increased margin */
+    font-size: 1.1rem; /* Larger font size */
+    color: #fff; /* White color for notes */
+    font-weight: 500; /* Medium font weight */
+}
+
+/* Why Choose Us Section Styling */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.benefit-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.benefit-item .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #0077CC; /* Primary Blue */
+}
+
+.benefit-item h3 {
+    font-size: 1.8rem; /* Larger font size */
+    margin-bottom: 10px;
+    color: #333; /* Changed to dark grey for higher contrast */
+    text-shadow: 4px 4px 8px rgba(0,0,0,1); /* Max contrast */
+}
+
+.benefit-item p {
+    font-size: 1.1rem; /* Slightly larger font size */
+    color: #666; /* Changed to a lighter grey for higher contrast */
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.9); /* Max contrast */
+}
+
+
+/* Contact Section Styling */
+.contact-info p {
+    font-size: 1rem;
+}
+
+/* Footer Styling */
+.container {
+    padding: 0 15px;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    color: white;
+    text-align: center;
+    padding: 25px 0; /* Increased padding */
+    margin-top: auto; /* Pushes footer to the bottom */
+    backdrop-filter: blur(10px); /* Glassmorphism blur */
+    -webkit-backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem; /* Adjusted for mobile */
+    }
+
+    .hero-content p {
+        font-size: 1.2rem; /* Adjusted for mobile */
+    }
+
+    .hero-ctas .cta-button {
+        display: block;
+        margin: 10px auto;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .sticky-nav .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sticky-nav ul {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sticky-nav ul li {
+        margin: 5px 10px;
+    }
+
+    /* Adjust section padding for smaller screens */
+    section {
+        padding: 40px 0;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Testimonial Grid */
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* General text adjustments */
+    h1 {
+        font-size: 2.5rem; /* Adjusted for mobile */
+    }
+
+    h2 {
+        font-size: 2rem; /* Adjusted for mobile */
+    }
+
+    h3 {
+        font-size: 1.5rem; /* Adjusted for mobile */
+    }
+
+    p {
+        font-size: 1rem; /* Adjusted for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .hero-ctas .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .site-title {
+        font-size: 1.2rem;
+    }
+
+    .sticky-nav ul li {
+        margin: 5px 5px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .product-item, .benefit-item, .testimonial-item {
+        padding: 20px;
+    }
+
+    .product-item .icon, .benefit-item .icon {
+        font-size: 2.5rem;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+    }
+}
+#iframe-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 9999;
+  transition: width 0.4s ease, height 0.4s ease, border-radius 0.4s ease;
+}
+
+#iframe-bubble iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#iframe-bubble.expanded {
+  width: 850px;
+  height: 450px;
+  border-radius: 20px;
+}
+
+#iframe-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 9999;
+  transition: width 0.4s ease, height 0.4s ease, border-radius 0.4s ease;
+}
+
+#iframe-bubble iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#iframe-bubble .iframe-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: transparent;
+}
+
+#iframe-bubble.expanded {
+  width: 280px;
+  height: 550px;
+  border-radius: 20px;
+}
+
+#iframe-bubble.expanded .iframe-cover {
+  display: none;
+}
+
+#close-bubble {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 20;
+  background: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: none;
+}
+
+/* Only show close button in expanded state */
+#iframe-bubble.expanded #close-bubble {
+  display: block;
+}
+
+
+
