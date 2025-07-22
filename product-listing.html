@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Premium Mobile Accessories Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product-listing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="sticky-nav">
+            <div class="container">
+                <a href="index.html" class="site-title">Premium Mobile Accessories</a>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="product-listing.html" class="active">Products</a></li>
+                    <li><a href="index.html#why-choose-us">Why Choose Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <button id="theme-toggle" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; margin-left: 20px;">🌓</button>
+    </header>
+
+    <section class="product-listing-hero">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Discover premium accessories for your mobile devices</p>
+        </div>
+    </section>
+
+    <section class="product-listing-main">
+        <div class="container">
+            <!-- Category Navigation Component -->
+            <div class="category-navigation">
+                <h2>Categories</h2>
+                <div class="category-tabs">
+                    <button class="category-tab active" data-category="all">All Products</button>
+                    <!-- These will be populated dynamically from the categories data -->
+                </div>
+            </div>
+
+            <div class="product-content">
+                <!-- Filter Controls Section -->
+                <aside class="filter-controls">
+                    <div class="filter-section">
+                        <h3>Filter By</h3>
+                        <div class="filter-group">
+                            <h4>Price Range</h4>
+                            <div class="price-range">
+                                <input type="range" id="price-min" min="0" max="100" value="0">
+                                <input type="range" id="price-max" min="0" max="100" value="100">
+                                <div class="price-inputs">
+                                    <div>
+                                        <label for="price-min-input">Min:</label>
+                                        <input type="number" id="price-min-input" min="0" value="0">
+                                    </div>
+                                    <div>
+                                        <label for="price-max-input">Max:</label>
+                                        <input type="number" id="price-max-input" min="0" value="100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Brand</h4>
+                            <div class="checkbox-group">
+                                <!-- Will be populated dynamically -->
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="brand-all" checked>
+                                    <label for="brand-all">All Brands</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Compatibility</h4>
+                            <div class="checkbox-group">
+                                <!-- Will be populated dynamically -->
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="compatibility-all" checked>
+                                    <label for="compatibility-all">All Devices</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="filter-apply-btn">Apply Filters</button>
+                        <button class="filter-reset-btn">Reset Filters</button>
+                    </div>
+                </aside>
+
+                <!-- Product Grid Container -->
+                <div class="product-grid-container">
+                    <div class="product-count">
+                        <span id="product-count-number">0</span> products found
+                    </div>
+                    
+                    <div class="product-sort">
+                        <label for="sort-select">Sort by:</label>
+                        <select id="sort-select">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                        </select>
+                    </div>
+
+                    <div class="product-grid">
+                        <!-- Product cards will be dynamically inserted here -->
+                    </div>
+
+                    <div class="no-results" style="display: none;">
+                        <h3>No products found</h3>
+                        <p>Try adjusting your filters or browse all products</p>
+                        <button class="reset-filters-btn">Reset Filters</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Premium Mobile Accessories Shop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="product-listing.js"></script>
+    
+    <div id="iframe-bubble">
+        <button id="close-bubble">❌</button>
+        <div class="iframe-cover"></div>
+        <iframe src="https://vah6002-cbmb.hf.space"></iframe>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const bubble = document.getElementById('iframe-bubble');
+            const cover = bubble.querySelector('.iframe-cover');
+            const closeBtn = document.getElementById('close-bubble');
+
+            // Open on click (small bubble)
+            cover.addEventListener('click', () => {
+                bubble.classList.add('expanded');
+                cover.style.display = 'none';
+            });
+
+            // Close on ❌
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                bubble.classList.remove('expanded');
+                cover.style.display = 'block';
+            });
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Check for saved theme preference, default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            if (currentTheme === 'dark') {
+                body.classList.add('dark-mode');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                let theme = 'light';
+                if (body.classList.contains('dark-mode')) {
+                    theme = 'dark';
+                }
+                localStorage.setItem('theme', theme);
+            });
+        });
+    </script>
+</body>
+</html>

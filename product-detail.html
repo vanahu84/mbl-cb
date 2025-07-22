@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - Premium Mobile Accessories Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="sticky-nav">
+            <div class="container">
+                <a href="index.html" class="site-title">Premium Mobile Accessories</a>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="product-listing.html" class="active">Products</a></li>
+                    <li><a href="index.html#why-choose-us">Why Choose Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <button id="theme-toggle" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; margin-left: 20px;">🌓</button>
+    </header>
+
+    <section class="product-breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product-listing.html">Products</a></li>
+                <li><a href="product-listing.html" class="category-link">Category</a></li>
+                <li class="product-name">Product Name</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="product-detail-main">
+        <div class="container">
+            <div class="product-detail-content">
+                <!-- Product Image Gallery -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img src="" alt="Product Image" id="main-product-image">
+                        <div class="image-zoom-overlay">
+                            <span>Click to zoom</span>
+                        </div>
+                    </div>
+                    <div class="thumbnail-strip">
+                        <!-- Thumbnails will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <!-- Product Information Section -->
+                <div class="product-info">
+                    <h1 class="product-title">Product Name</h1>
+                    
+                    <div class="product-pricing">
+                        <span class="current-price">$0.00</span>
+                        <span class="original-price"></span>
+                        <span class="discount-badge"></span>
+                    </div>
+                    
+                    <div class="stock-status">
+                        <span class="stock-status-dot"></span>
+                        <span class="stock-status-text">In Stock</span>
+                    </div>
+                    
+                    <div class="product-description">
+                        <p>Product description will be displayed here.</p>
+                    </div>
+                    
+                    <!-- Variant Selection -->
+                    <div class="variant-selection">
+                        <h3>Available Options</h3>
+                        <div class="variant-options">
+                            <!-- Variant options will be dynamically inserted here -->
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="wishlist-btn">Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Specifications Table Component -->
+            <div class="product-specifications">
+                <h2>Specifications</h2>
+                <div class="specifications-container">
+                    <!-- Specification groups will be dynamically inserted here -->
+                </div>
+            </div>
+            
+            <!-- Compatibility List Section -->
+            <div class="product-compatibility">
+                <h2>Device Compatibility</h2>
+                <div class="compatibility-container">
+                    <!-- Compatibility information will be dynamically inserted here -->
+                </div>
+            </div>
+            
+            <!-- Related Products Section -->
+            <div class="related-products">
+                <h2>Related Products</h2>
+                <div class="related-products-container">
+                    <!-- Related products will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Premium Mobile Accessories Shop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="image-zoom-modal">
+        <span class="close-zoom">&times;</span>
+        <img class="zoomed-image" src="" alt="Zoomed Product Image">
+        <div class="image-counter">1 / 1</div>
+    </div>
+
+    <script src="products.js"></script>
+    <script src="product-detail.js"></script>
+    
+    <div id="iframe-bubble">
+        <button id="close-bubble">❌</button>
+        <div class="iframe-cover"></div>
+        <iframe src="https://vah6002-cbmb.hf.space"></iframe>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const bubble = document.getElementById('iframe-bubble');
+            const cover = bubble.querySelector('.iframe-cover');
+            const closeBtn = document.getElementById('close-bubble');
+
+            // Open on click (small bubble)
+            cover.addEventListener('click', () => {
+                bubble.classList.add('expanded');
+                cover.style.display = 'none';
+            });
+
+            // Close on ❌
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                bubble.classList.remove('expanded');
+                cover.style.display = 'block';
+            });
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Check for saved theme preference, default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            if (currentTheme === 'dark') {
+                body.classList.add('dark-mode');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                let theme = 'light';
+                if (body.classList.contains('dark-mode')) {
+                    theme = 'dark';
+                }
+                localStorage.setItem('theme', theme);
+            });
+        });
+    </script>
+</body>
+</html>
